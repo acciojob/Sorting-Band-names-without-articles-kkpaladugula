@@ -1,20 +1,13 @@
-let bandNames = ['The Beatles', 'Led Zeppelin', 'Pink Floyd', 'The Who', 'Aerosmith'];
+let bandNames = ['The Beatles', 'Led Zeppelin', 'Pink Floyd', 'The Who', 'Rolling Stones', 'Aerosmith', 'The Doors', 'Nirvana'];
 
-function removeArticle(bandName) {
-  // Regular expression to match articles at the beginning of the band name
-  let re = /^(?:The|An|A)\s+/i;
-  return bandName.replace(re, '');
-}
+//remove the articles from the band name
+bandNames = bandNames.map(name => name.replace(/^(a|an|the)\s+/i, '').trim());
 
-// Sort the band names in lexicographic order without articles
-bandNames.sort((a, b) => removeArticle(a).localeCompare(removeArticle(b)));
+//sorting the names in lexicographic order
+bandNames.sort();
 
-// Get a reference to the "band" unordered list element
-let bandList = document.getElementById('bands');
+// select the ul elements
+const ul = document.querySelector('ul');
 
-// Add the sorted band names as list items to the "band" unordered list element
-for (let name of bandNames) {
-  let listItem = document.createElement('li');
-  listItem.textContent = name;
-  bandList.appendChild(listItem);
-}
+// Create an array of li elements for the band names and add them to the ul element
+ul.innerHTML = bandNames.map(name => `<li>${name}</li>`).join('');
