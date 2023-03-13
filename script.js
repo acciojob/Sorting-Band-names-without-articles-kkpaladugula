@@ -1,4 +1,3 @@
-//your code here
 let bandNames = ['The Beatles', 'Led Zeppelin', 'Pink Floyd', 'The Who', 'Aerosmith'];
 
 function removeArticle(bandName) {
@@ -19,4 +18,3 @@ for (let name of bandNames) {
   listItem.textContent = name;
   bandList.appendChild(listItem);
 }
-
